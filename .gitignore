@@ -1,0 +1,14 @@
+# Temp/workspace files
+*.swp
+*.ropeproject*
+
+# Generated binaries
+*.so
+*.dll
+*.dylib
+
+# Generated directories
+*.egg*
+build
+dist
+rust/target

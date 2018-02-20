@@ -1,0 +1,10 @@
+[package]
+name = "rustlib"
+version = "0.1.0"
+authors = ["italic <italic.rendezvous@gmail.com>"]
+
+[dependencies]
+
+[lib]
+name = "rustlib"
+crate-type = ["cdylib"]
