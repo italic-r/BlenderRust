@@ -50,11 +50,11 @@ class Rust(Command):
         """Build rust library and copy to build dir."""
         self.build_rust()
 
-        shutil.copy(self.get_lib_file(), self.package_path)
+        shutil.copy(self.get_lib_file(), self.proj_dir)
 
         self.distribution.data_files.append((
             self.distribution.get_name(),
-            ["{}/{}".format(self.distribution.get_name(), self.get_lib_file().name)]
+            [self.get_lib_file().name]
         ))
 
     def build_rust(self):
@@ -65,6 +65,7 @@ class Rust(Command):
         subprocess.check_call(cmdlist, cwd=self.rust_project_path)
 
     def get_lib_file(self):
+        """Get library name/path from rust's default output directory."""
         prefix = {"win32": ""}.get(sys.platform, "lib")
         ext = {"darwin": "dylib", "win32": "dll"}.get(sys.platform, "so")
 
