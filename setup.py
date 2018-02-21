@@ -49,12 +49,14 @@ class Rust(Command):
     def run(self):
         """Build rust library and copy to build dir."""
         self.build_rust()
+        lib_file = self.get_lib_file()
+        dist_name = self.distribution.get_name()
 
-        shutil.copy(self.get_lib_file(), self.proj_dir)
+        shutil.copy(lib_file, self.proj_dir / dist_name)
 
         self.distribution.data_files.append((
             self.distribution.get_name(),
-            [self.get_lib_file().name]
+            ["{}/{}".format(dist_name, lib_file.name)]
         ))
 
     def build_rust(self):
