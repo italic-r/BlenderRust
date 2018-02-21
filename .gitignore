@@ -12,3 +12,6 @@
 build
 dist
 rust/target
+
+# Compiled python
+*__pycache__*
