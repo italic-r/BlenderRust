@@ -16,7 +16,7 @@ os.environ["rust_lib_name"] = "rustlib"
 
 
 class Rust(Command):
-    """"Sets user options."""
+    """Sets user options."""
 
     description = "Build native Rust library."
     user_options = [
@@ -75,7 +75,7 @@ class Rust(Command):
 
 
 class ZipBdist(bdist):
-    """"Create only zip archive."""
+    """Create only zip archive."""
 
     user_options = [
         ("release", None, "release mode"),
@@ -103,6 +103,7 @@ class ZipBdist(bdist):
 
 
 class BlenderAddonInstall(install):
+    """Blender install options."""
 
     def initialize_options(self):
         super().initialize_options()
